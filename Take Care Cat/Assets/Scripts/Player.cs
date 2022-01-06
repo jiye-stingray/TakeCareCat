@@ -38,10 +38,10 @@ public class Player : MonoBehaviour
             Vector3 lookRight = new Vector3(cameraObj.right.x,0f,cameraObj.right.z).normalized;
             Vector3 moveDir = lookForward * moveInput.x + lookRight * moveInput.y;
 
-            player.forward = lookForward;
+            player.forward = moveDir;
             transform.position += moveDir * Time.deltaTime * speed;
         }
-        Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
+        //Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
 
     /// <summary>
