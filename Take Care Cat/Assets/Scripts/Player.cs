@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float h;
-    float v;
     [SerializeField]
-    float speed;
-    
+    private Transform player;
+    [SerializeField]
+    private Transform cameraObj;
+
+    Animator anim;
+
     void Start()
     {
-        
+        anim = player.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        LookAround();
+    }
 
-        gameObject.transform.position += new Vector3(h, 0, v) * speed;
+    /// <summary>
+    /// 마우스의 방향에 따라 카메라를 회전시키는 기능
+    /// </summary>
+    private void LookAround()
+    {
+        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        Vector3 cameraAngle = cameraObj.rotation.eulerAngles;
+
+        cameraObj.rotation = Quaternion.Euler(cameraAngle.x - mouseDelta.y, 
+            cameraAngle.y + mouseDelta.x, cameraAngle.z);
     }
 }
