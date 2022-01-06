@@ -19,6 +19,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         LookAround();
+        Move();
+    }
+
+    /// <summary>
+    /// 움직이는 함수
+    /// </summary>
+    private void Move()
+    {
+        Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
 
     /// <summary>
@@ -30,7 +39,6 @@ public class Player : MonoBehaviour
         Vector3 cameraAngle = cameraObj.rotation.eulerAngles;
 
         float x = cameraAngle.x - mouseDelta.y;
-        Debug.Log(x);
 
         if (x < 180f)
             x = Mathf.Clamp(x, -1f, 70f);

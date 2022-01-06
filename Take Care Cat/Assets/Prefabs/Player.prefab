@@ -47,20 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   cameraObj: {fileID: 0}
---- !u!136 &504850280002625519
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4270858493950148951}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.21
-  m_Height: 1.49
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.72, z: 0}
 --- !u!95 &4596743250049503338
 Animator:
   serializedVersion: 3
