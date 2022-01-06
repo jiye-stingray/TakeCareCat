@@ -29,7 +29,16 @@ public class Player : MonoBehaviour
         Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         Vector3 cameraAngle = cameraObj.rotation.eulerAngles;
 
-        cameraObj.rotation = Quaternion.Euler(cameraAngle.x - mouseDelta.y, 
+        float x = cameraAngle.x - mouseDelta.y;
+        Debug.Log(x);
+
+        if (x < 180f)
+            x = Mathf.Clamp(x, -1f, 70f);
+        else
+            x = Mathf.Clamp(x, 335f, 361f);
+
+
+            cameraObj.rotation = Quaternion.Euler(x, 
             cameraAngle.y + mouseDelta.x, cameraAngle.z);
     }
 }
