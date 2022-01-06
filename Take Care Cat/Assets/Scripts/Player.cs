@@ -39,7 +39,19 @@ public class Player : MonoBehaviour
             Vector3 moveDir = lookForward * moveInput.x + lookRight * moveInput.y;
 
             player.forward = moveDir;
-            transform.position += moveDir * Time.deltaTime * speed;
+
+            if (Input.GetButton("Fire3"))
+            {
+                anim.SetBool("isRun", true);
+                transform.position += moveDir * Time.deltaTime * speed * 2;
+
+            }
+            else
+            {
+                anim.SetBool("isRun", false);
+                transform.position += moveDir * Time.deltaTime * speed;
+            }
+            Debug.Log(anim.GetBool("isRun"));
         }
         //Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
