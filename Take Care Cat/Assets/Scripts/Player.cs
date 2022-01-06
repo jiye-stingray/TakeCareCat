@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private Transform player;
     [SerializeField]
     private Transform cameraObj;
+    [SerializeField]
+    float speed;
 
     Animator anim;
 
@@ -27,6 +29,18 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Move()
     {
+        Vector2 moveInput = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
+        bool isMove = moveInput.magnitude != 0;
+        anim.SetBool("isWalking", isMove);
+        if (isMove)
+        {
+            Vector3 lookForward = new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized;
+            Vector3 lookRight = new Vector3(cameraObj.right.x,0f,cameraObj.right.z).normalized;
+            Vector3 moveDir = lookForward * moveInput.x + lookRight * moveInput.y;
+
+            player.forward = lookForward;
+            transform.position += moveDir * Time.deltaTime * speed;
+        }
         Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
 
