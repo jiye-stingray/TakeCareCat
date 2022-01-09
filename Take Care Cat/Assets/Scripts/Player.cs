@@ -75,4 +75,12 @@ public class Player : MonoBehaviour
             cameraObj.rotation = Quaternion.Euler(x, 
             cameraAngle.y + mouseDelta.x, cameraAngle.z);
     }
+
+    void OnCollisionStay(Collision collision)
+    {   
+        if (collision.gameObject.tag != "Floor")
+        {
+            speed = 0;
+        }
+    }
 }
