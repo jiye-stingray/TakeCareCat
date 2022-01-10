@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
                 anim.SetBool("isRun", false);
                 transform.position += moveDir * Time.deltaTime * speed;
             }
-            Debug.Log(anim.GetBool("isRun"));
         }
         //Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
