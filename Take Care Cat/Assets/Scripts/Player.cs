@@ -11,10 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     float speed;
 
+
+    Rigidbody rigid;
     Animator anim;
 
     void Start()
     {
+        rigid = GetComponent<Rigidbody>();
         anim = player.GetComponent<Animator>();
     }
 
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour
     {
         LookAround();
         Move();
+
+        JumpCheck();
     }
 
     /// <summary>
@@ -73,6 +78,18 @@ public class Player : MonoBehaviour
 
             cameraObj.rotation = Quaternion.Euler(x, 
             cameraAngle.y + mouseDelta.x, cameraAngle.z);
+    }
+
+    /// <summary>
+    /// 점프 확인 하는 함수
+    /// </summary>
+    void JumpCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rigid.AddForce(Vector3.up);
+            anim.SetTrigger("isJump");
+        }
     }
 
     void OnCollisionStay(Collision collision)
