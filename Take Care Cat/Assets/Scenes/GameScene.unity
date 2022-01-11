@@ -4922,6 +4922,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 776522121}
     m_Modifications:
+    - target: {fileID: 239775665518702058, guid: 8eed4ebf1237e714588f9b9b196fa643, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3315808398779036826, guid: 8eed4ebf1237e714588f9b9b196fa643, type: 3}
       propertyPath: m_Name
       value: OldCar_02 (1)
@@ -9773,6 +9777,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6570521256408280774, guid: f1b164e4d75474543a59a4e010802efc, type: 3}
   m_PrefabInstance: {fileID: 529033086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &530132816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4822885870896377116, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
+  m_PrefabInstance: {fileID: 4554385747862698469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &530132817
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530132816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.24
+  m_Height: 1.41
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.71, z: 0}
 --- !u!1001 &531781162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23844,6 +23867,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8048707867741269018, guid: 724a63feefa37b849a1928bbc7731895, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724a63feefa37b849a1928bbc7731895, type: 3}
 --- !u!4 &1432740911 stripped
@@ -34787,6 +34814,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.24
       objectReference: {fileID: 0}
+    - target: {fileID: 2702321590137905975, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
+      propertyPath: m_Center.y
+      value: 0.82
+      objectReference: {fileID: 0}
     - target: {fileID: 4241317743086142747, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
       propertyPath: speed
       value: 3
@@ -34853,7 +34884,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7432329141652048398, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432329141652048398, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432329141652048398, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38ee30e0ec76e0246982d5a1a8cce492, type: 3}

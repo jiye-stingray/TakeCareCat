@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
         LookAround();
         Move();
 
+    }
+
+    void FixedUpdate()
+    {
         JumpCheck();
     }
 
@@ -80,17 +84,36 @@ public class Player : MonoBehaviour
             cameraAngle.y + mouseDelta.x, cameraAngle.z);
     }
 
+
+
     /// <summary>
     /// 점프 확인 하는 함수
     /// </summary>
+    bool isJump;
     void JumpCheck()
     {
+        if (Physics.Raycast(player.transform.position, Vector3.down))
+        {
+            isJump = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigid.AddForce(Vector3.up);
-            anim.SetTrigger("isJump");
+            if (isJump)
+                return;
+
+            Jump();
+
         }
     }
+
+    private void Jump()
+    {
+        rigid.AddForce(Vector3.up);
+        anim.SetTrigger("isJump");
+        isJump = true;
+    }
+
 
     void OnCollisionStay(Collision collision)
     {   
