@@ -92,11 +92,8 @@ public class Player : MonoBehaviour
     bool isJump;
     void JumpCheck()
     {
-        if (Physics.Raycast(player.transform.position, Vector3.down))
-        {
-            isJump = false;
-        }
-
+        Debug.Log(isJump);
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isJump)
@@ -105,6 +102,8 @@ public class Player : MonoBehaviour
             Jump();
 
         }
+
+        
     }
 
     private void Jump()
@@ -120,6 +119,14 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag != "Floor")
         {
             speed = 0;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
         }
     }
 }
