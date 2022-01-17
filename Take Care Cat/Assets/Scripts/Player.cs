@@ -92,7 +92,8 @@ public class Player : MonoBehaviour
     bool isJump;
     void JumpCheck()
     {
-        Debug.Log(isJump);
+        if (isJump)
+            Debug.Log(isJump);
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -108,9 +109,9 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+        isJump = true;
         rigid.AddForce(Vector3.up);
         anim.SetTrigger("isJump");
-        isJump = true;
     }
 
 
