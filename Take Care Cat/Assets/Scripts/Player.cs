@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Transform cameraObj;
     [SerializeField]
     float speed;
-
+    float checkCollision = 1;
 
     Rigidbody rigid;
     Animator anim;
@@ -49,17 +49,19 @@ public class Player : MonoBehaviour
 
             player.forward = moveDir;
 
+            float runSpeed = 2;
             if (Input.GetButton("Fire3"))
             {
                 anim.SetBool("isRun", true);
-                transform.position += moveDir * Time.deltaTime * speed * 2;
-
+                runSpeed = 2;
             }
             else
             {
                 anim.SetBool("isRun", false);
-                transform.position += moveDir * Time.deltaTime * speed;
+                runSpeed = 1;
             }
+
+            transform.position += moveDir * Time.deltaTime * speed * runSpeed * checkCollision;
         }
         //Debug.DrawRay(cameraObj.position, new Vector3(cameraObj.forward.x,0f,cameraObj.forward.z).normalized ,Color.red);
     }
@@ -115,19 +117,23 @@ public class Player : MonoBehaviour
     }
 
 
-    void OnCollisionStay(Collision collision)
-    {   
+    void OnCollisionEnter(Collision collision)
+    {
         if (collision.gameObject.tag != "Floor")
         {
-            speed = 0;
+            checkCollision = 0;
+        }
+        else 
+        {
+            isJump = false;
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag != "Floor")
         {
-            isJump = false;
+            checkCollision = 1;
         }
     }
 }
