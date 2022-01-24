@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         isJump = true;
-        rigid.AddForce(Vector3.up);
+        rigid.AddForce(Vector3.up * 3);
         anim.SetTrigger("isJump");
     }
 
