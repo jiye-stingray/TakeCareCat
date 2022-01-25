@@ -27,7 +27,6 @@ public class Object : MonoBehaviour
     {
         //메인 텍스트에 오브젝트의 설명을 반환한다
         return explanation;
-
     }
 
 }

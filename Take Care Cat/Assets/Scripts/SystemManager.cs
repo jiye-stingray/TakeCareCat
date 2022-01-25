@@ -25,4 +25,33 @@ public class SystemManager : MonoBehaviour
         instance = this;
     }
 
+    [SerializeField]
+    Object objects;
+    public Object Objects
+    {
+        get
+        {
+            return objects;
+        }
+    }
+
+    [SerializeField]
+    Car car;
+    public Car Car
+    {
+        get
+        {
+            return car;
+        }
+    }
+
+    [SerializeField]
+    OldCar oldcar;
+    public OldCar Oldcar
+    {
+        get
+        {
+            return oldcar;
+        }
+    }
 }
