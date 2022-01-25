@@ -8,7 +8,7 @@ public class Car : Object
     void Start()
     {
         name = "경찰차";
-        explanation = "경찰차. 함부로 조사하면 안 될 거 같다.";
+        explanation = "함부로 조사하면 안 될 거 같다.";
     }
 
     void Update()

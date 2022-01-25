@@ -24,6 +24,7 @@ public class Inspection : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, 0.5f))
         {
             Debug.Log("조사를 하세요");
+            Debug.Log(hit.transform.name);
             
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -33,7 +34,7 @@ public class Inspection : MonoBehaviour
                     explanation = hit.transform.gameObject.GetComponent<Car>().Search();
 
                 }
-                else if (hit.transform.gameObject.name.Contains("OldCar"))
+                if (hit.transform.gameObject.name.Contains("OldCar"))
                 {
                     explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
 
@@ -44,6 +45,10 @@ public class Inspection : MonoBehaviour
                 informationText.text = explanation;
             }
             
+        }
+        else
+        {
+            informationText.text = "";
         }
     }
 }
