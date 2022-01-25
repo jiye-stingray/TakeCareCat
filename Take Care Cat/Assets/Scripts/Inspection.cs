@@ -27,8 +27,18 @@ public class Inspection : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.E))
             {
+                string explanation = "";
+                if (hit.transform.gameObject.name.Contains("CopCar"))
+                {
+                    explanation = hit.transform.gameObject.GetComponent<Car>().Search();
 
-                string explanation =  hit.transform.gameObject.GetComponent<Car>().Search();
+                }
+                else if (hit.transform.gameObject.name.Contains("OldCar"))
+                {
+                    explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
+
+                }
+
                 //조사를 할 수 있다 
                 Debug.Log("조사");
                 informationText.text = explanation;
