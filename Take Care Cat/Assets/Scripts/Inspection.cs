@@ -20,8 +20,8 @@ public class Inspection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward,Color.green,0.5f);
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 0.5f))
+        Debug.DrawRay(transform.position, transform.forward,Color.green,1f);
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f))
         {
             Debug.Log("조사를 하세요");
             Debug.Log(hit.transform.name);

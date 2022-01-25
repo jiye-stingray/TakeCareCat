@@ -23,7 +23,7 @@ public class Object : MonoBehaviour
     /// 오브젝트를 조사했을 때의 함수
     /// </summary>
     /// <returns></returns>
-    public string Search()
+    public virtual string Search()
     {
         //메인 텍스트에 오브젝트의 설명을 반환한다
         return explanation;

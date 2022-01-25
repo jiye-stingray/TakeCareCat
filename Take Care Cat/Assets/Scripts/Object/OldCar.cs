@@ -11,9 +11,4 @@ public class OldCar : Object
         explanation = "너무 오래되서 작동하지 않는다";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -11,9 +11,10 @@ public class Car : Object
         explanation = "함부로 조사하면 안 될 거 같다.";
     }
 
-    void Update()
+    public override string Search()
     {
-        
+        Clarkson();
+        return base.Search();
     }
 
     void Clarkson()
