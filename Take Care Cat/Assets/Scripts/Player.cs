@@ -89,8 +89,6 @@ public class Player : MonoBehaviour
             cameraAngle.y + mouseDelta.x, cameraAngle.z);
     }
 
-
-
     /// <summary>
     /// 점프 확인 하는 함수
     /// </summary>
@@ -108,7 +106,6 @@ public class Player : MonoBehaviour
             Jump();
 
         }
-
         
     }
 

@@ -20,35 +20,52 @@ public class Inspection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward,Color.green,1f);
+        RayCasting();
+    }
+
+    void RayCasting()
+    {
+        //Debug.DrawRay(transform.position, transform.forward, Color.green, 1f);
+
         if (Physics.Raycast(transform.position, transform.forward, out hit, 1f))
         {
+
             Debug.Log("조사를 하세요");
             Debug.Log(hit.transform.name);
+
             
+
+
             if (Input.GetKeyDown(KeyCode.E))
             {
-                string explanation = "";
-                if (hit.transform.gameObject.name.Contains("CopCar"))
-                {
-                    explanation = hit.transform.gameObject.GetComponent<Car>().Search();
-
-                }
-                if (hit.transform.gameObject.name.Contains("OldCar"))
-                {
-                    explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
-
-                }
-
-                //조사를 할 수 있다 
-                Debug.Log("조사");
-                informationText.text = explanation;
+                Explanation();
             }
-            
+
         }
         else
         {
             informationText.text = "";
         }
     }
+
+    void Explanation()
+    {
+        string explanation = "";
+        if (hit.transform.gameObject.name.Contains("CopCar"))
+        {
+            explanation = hit.transform.gameObject.GetComponent<Car>().Search();
+
+        }
+        if (hit.transform.gameObject.name.Contains("OldCar"))
+        {
+            explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
+
+        }
+
+        //조사를 할 수 있다 
+        Debug.Log("조사");
+        informationText.text = explanation;
+
+    }
+
 }
