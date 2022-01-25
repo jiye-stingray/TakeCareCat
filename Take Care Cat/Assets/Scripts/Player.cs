@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform cameraObj;
     [SerializeField]
+    private Transform inspection;
+    [SerializeField]
     float speed;
     float checkCollision = 1;
 
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
             Vector3 moveDir = lookForward * moveInput.x + lookRight * moveInput.y;
 
             player.forward = moveDir;
+            inspection.forward = moveDir;
 
             float runSpeed = 2;
             if (Input.GetButton("Fire3"))
