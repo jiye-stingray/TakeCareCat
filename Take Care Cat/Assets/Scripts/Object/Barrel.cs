@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrel : MonoBehaviour
+public class Barrel : Object
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        name = "불통";
+        explanation = "가까이 가면 몸이 따뜻해진다";
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public override string Search()
+    {
+        return base.Search();
+    }
+
+    
 }

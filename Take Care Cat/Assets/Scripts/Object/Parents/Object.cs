@@ -7,6 +7,8 @@ public class Object : MonoBehaviour
     public string name;
     public string explanation;
 
+    Player player => SystemManager.Instance.Player;
+    
     // Start is called before the first frame update
     void Start()
     {

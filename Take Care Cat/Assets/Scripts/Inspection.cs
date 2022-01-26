@@ -45,15 +45,26 @@ public class Inspection : MonoBehaviour
     void Explanation()
     {
         string explanation = "";
-        if (hit.transform.gameObject.name.Contains("CopCar"))
-        {
-            explanation = hit.transform.gameObject.GetComponent<Car>().Search();
 
-        }
-        if (hit.transform.gameObject.name.Contains("OldCar"))
+        switch (hit.transform.tag)
         {
-            explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
+            case "CopCar":
+                explanation = hit.transform.gameObject.GetComponent<Car>().Search();
+                break;
+
+            case "OldCar":
+                explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
+                break;
+
+            case "Barrel":
+                explanation = hit.transform.GetComponent<Barrel>().Search();
+                break;
+
+            default:
+                break;
         }
+
+
 
         //조사를 할 수 있다 
         //informationText.text = explanation;

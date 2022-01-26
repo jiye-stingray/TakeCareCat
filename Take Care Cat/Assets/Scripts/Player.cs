@@ -136,4 +136,12 @@ public class Player : MonoBehaviour
             checkCollision = 1;
         }
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Barrel")
+        {
+            Debug.Log("체력회복?");
+        }
+    }
 }
