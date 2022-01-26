@@ -6,40 +6,34 @@ using UnityEngine.UI;
 
 public class Inspection : MonoBehaviour
 {
-    RaycastHit hit;
 
     public Text informationText;
+    RaycastHit hit;
+    Ray ray;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+        informationText.text = "";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        RayCasting();
+        if (Input.GetMouseButtonDown(0))
+        {
+            RayCasting();
+        }
     }
 
     void RayCasting()
     {
         //Debug.DrawRay(transform.position, transform.forward, Color.green, 1f);
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1f))
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
         {
 
-            Debug.Log("조사를 하세요");
-            Debug.Log(hit.transform.name);
-
-            
-
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Explanation();
-            }
+            Explanation();
 
         }
         else
@@ -59,13 +53,24 @@ public class Inspection : MonoBehaviour
         if (hit.transform.gameObject.name.Contains("OldCar"))
         {
             explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
-
         }
 
         //조사를 할 수 있다 
-        Debug.Log("조사");
-        informationText.text = explanation;
+        //informationText.text = explanation;
+        StartCoroutine(TextAnimation(explanation));
+        
 
+    }
+
+    IEnumerator TextAnimation(string explanation)
+    {
+        for (int i = 0; i < explanation.Length; i++)
+        {
+            informationText.text += explanation[i];
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(0.1f);
+        informationText.text = "";
     }
 
 }
