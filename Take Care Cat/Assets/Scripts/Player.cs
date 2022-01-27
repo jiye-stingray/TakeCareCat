@@ -100,8 +100,6 @@ public class Player : MonoBehaviour
     bool isJump;
     void JumpCheck()
     {
-        if (isJump)
-            Debug.Log(isJump);
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -113,7 +111,10 @@ public class Player : MonoBehaviour
         }
         
     }
-
+    
+    /// <summary>
+    /// 점프 하는 함수
+    /// </summary>
     private void Jump()
     {
         isJump = true;

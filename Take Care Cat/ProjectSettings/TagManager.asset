@@ -5,10 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Floor
-  - CopCar
-  - OldCar
-  - Barrel
-  - Barrier
   layers:
   - Default
   - TransparentFX
