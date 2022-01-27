@@ -11,6 +11,11 @@ public class Inspection : MonoBehaviour
     RaycastHit hit;
     Ray ray;
 
+    void Awake()
+    {
+
+    }
+
     void Start()
     {
         informationText.text = "";
@@ -24,6 +29,7 @@ public class Inspection : MonoBehaviour
         }
     }
 
+
     void RayCasting()
     {
         //Debug.DrawRay(transform.position, transform.forward, Color.green, 1f);
@@ -32,9 +38,8 @@ public class Inspection : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-
-            Explanation();
-
+            Explanation(hit.transform.gameObject);
+            
         }
         else
         {
@@ -42,37 +47,18 @@ public class Inspection : MonoBehaviour
         }
     }
 
-    void Explanation()
+    /// <summary>
+    /// 실질적으로 조사를 하는 함수
+    /// </summary>
+    /// <param name="obj">조사할 오브젝트</param>
+    void Explanation(GameObject obj)
     {
         string explanation = "";
 
-        switch (hit.transform.tag)
-        {
-            case "CopCar":
-                explanation = hit.transform.gameObject.GetComponent<Car>().Search();
-                break;
+        //조사
+        explanation = obj.GetComponent<Object>().Search();
 
-            case "OldCar":
-                explanation = hit.transform.gameObject.GetComponent<OldCar>().Search();
-                break;
-
-            case "Barrel":
-                explanation = hit.transform.GetComponent<Barrel>().Search();
-                break;
-
-            case "Barrier":
-                explanation = hit.transform.GetComponent<Barrier>().Search();
-                break;
-
-
-            default:
-                break;
-        }
-
-
-
-        //조사를 할 수 있다 
-        //informationText.text = explanation;
+        //글자 보이기
         StartCoroutine(TextAnimation(explanation));
         
 
