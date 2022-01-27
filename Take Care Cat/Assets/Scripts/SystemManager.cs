@@ -34,24 +34,4 @@ public class SystemManager : MonoBehaviour
             return player;
         }
     }
-
-    [SerializeField]
-    Car car;
-    public Car Car
-    {
-        get
-        {
-            return car;
-        }
-    }
-
-    [SerializeField]
-    OldCar oldcar;
-    public OldCar Oldcar
-    {
-        get
-        {
-            return oldcar;
-        }
-    }
 }

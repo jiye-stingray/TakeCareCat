@@ -8,6 +8,7 @@ TagManager:
   - CopCar
   - OldCar
   - Barrel
+  - Barrier
   layers:
   - Default
   - TransparentFX
