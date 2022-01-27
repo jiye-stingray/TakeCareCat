@@ -47,16 +47,23 @@ public class Inspection : MonoBehaviour
         }
     }
 
+    private bool isExplanation;
+
     /// <summary>
     /// 실질적으로 조사를 하는 함수
     /// </summary>
     /// <param name="obj">조사할 오브젝트</param>
     void Explanation(GameObject obj)
     {
-        string explanation = "";
+        if (isExplanation)
+            return;
 
-        //조사
-        explanation = obj.GetComponent<Object>().Search();
+        string explanation;
+        if (obj.GetComponent<Object>() == null)
+            explanation = "";
+        else
+            explanation = obj.GetComponent<Object>().Search();  //조사
+
 
         //글자 보이기
         StartCoroutine(TextAnimation(explanation));
@@ -66,6 +73,7 @@ public class Inspection : MonoBehaviour
 
     IEnumerator TextAnimation(string explanation)
     {
+        isExplanation = true;
         for (int i = 0; i < explanation.Length; i++)
         {
             informationText.text += explanation[i];
@@ -73,6 +81,7 @@ public class Inspection : MonoBehaviour
         }
         yield return new WaitForSeconds(0.1f);
         informationText.text = "";
+        isExplanation = false;
     }
 
 }
