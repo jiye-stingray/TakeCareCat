@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             inspection.forward = moveDir;
 
             float runSpeed = 2;
-            if (Input.GetButton("Fire3"))
+            if (Input.GetButton("Fire3") && isMove)
             {
                 anim.SetBool("isRun", true);
                 runSpeed = 2;
@@ -62,6 +62,11 @@ public class Player : MonoBehaviour
             {
                 anim.SetBool("isRun", false);
                 runSpeed = 1;
+            }
+
+            if (Input.GetButtonUp("Fire3"))
+            {
+                anim.SetBool("isRun", false);
             }
 
             transform.position += moveDir * Time.deltaTime * speed * runSpeed * checkCollision;

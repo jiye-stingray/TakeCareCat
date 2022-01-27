@@ -64,6 +64,7 @@ public class Inspection : MonoBehaviour
                 explanation = hit.transform.GetComponent<Barrier>().Search();
                 break;
 
+
             default:
                 break;
         }
