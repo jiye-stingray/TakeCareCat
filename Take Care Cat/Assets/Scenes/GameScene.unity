@@ -31278,9 +31278,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.16
-  m_Height: 1
+  m_Height: 1.2548754
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 6.2352894e-14, y: -0.12743771, z: -5.8726515e-20}
 --- !u!1001 &1798652642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36384,17 +36384,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2307125540764102498, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_Radius
+      value: 0.06534447
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307125540764102498, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_Center.x
+      value: 2.3770358e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307125540764102498, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_Center.y
+      value: -0.09999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307125540764102498, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0053444705
+      objectReference: {fileID: 0}
     - target: {fileID: 3491119892290216023, guid: 91636cc21b3aac547907da6f00199034, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3491119892290216023, guid: 91636cc21b3aac547907da6f00199034, type: 3}
       propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491119892290216023, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3491119892290216023, guid: 91636cc21b3aac547907da6f00199034, type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491119892290216023, guid: 91636cc21b3aac547907da6f00199034, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6668800950554708272, guid: 91636cc21b3aac547907da6f00199034, type: 3}
       propertyPath: m_Constraints
