@@ -14,12 +14,10 @@ public class Player : MonoBehaviour
     float speed;
     float checkCollision = 1;
 
-    Rigidbody rigid;
     Animator anim;
 
-    void Start()
+    void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
         anim = player.GetComponent<Animator>();
     }
 
@@ -100,6 +98,8 @@ public class Player : MonoBehaviour
     bool isJump;
     void JumpCheck()
     {
+        Debug.Log(isJump);
+       
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -118,13 +118,13 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         isJump = true;
-        rigid.AddForce(Vector3.up * 3);
         anim.SetTrigger("isJump");
     }
 
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag != "Floor")
         {
             checkCollision = 0;
