@@ -150,4 +150,6 @@ public class Player : MonoBehaviour
             Debug.Log("체력회복?");
         }
     }
+
+    
 }

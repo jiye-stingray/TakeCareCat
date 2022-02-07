@@ -11,6 +11,7 @@ public class Inspection : MonoBehaviour
     RaycastHit hit;
     Ray ray;
 
+
     void Awake()
     {
 
@@ -84,4 +85,5 @@ public class Inspection : MonoBehaviour
         isExplanation = false;
     }
 
+    
 }
