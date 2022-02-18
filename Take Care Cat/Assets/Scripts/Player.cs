@@ -97,9 +97,7 @@ public class Player : MonoBehaviour
     /// </summary>
     bool isJump;
     void JumpCheck()
-    {
-        Debug.Log(isJump);
-       
+    {       
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -124,7 +122,6 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag != "Floor")
         {
             checkCollision = 0;

@@ -39,6 +39,12 @@ public class Inspection : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            Debug.Log(hit.transform.name);
+            if (hit.transform.tag == "Cat")
+            {
+                hit.transform.gameObject.GetComponent<Cat>().StartCatCare();
+            }
+
             Explanation(hit.transform.gameObject);
             
         }

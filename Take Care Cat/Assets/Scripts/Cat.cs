@@ -38,4 +38,12 @@ public class Cat : MonoBehaviour
 
         anim.SetInteger("Pet", petNum);
     }
+
+    /// <summary>
+    /// 플레이어가 고양이를 선택했을 때 함수
+    /// </summary>
+    public void StartCatCare()
+    {
+        Debug.Log("돌보자");
+    }
 }
