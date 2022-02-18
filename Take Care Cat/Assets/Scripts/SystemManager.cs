@@ -34,4 +34,14 @@ public class SystemManager : MonoBehaviour
             return player;
         }
     }
+
+    [SerializeField]
+    CameraController cameraController;
+    public CameraController CameraController
+    {
+        get
+        {
+            return cameraController;
+        }
+    }
 }
