@@ -19,14 +19,23 @@ public class Cat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int petNum = Random.Range(0,3);
-        Debug.Log(petNum);
-        anim.SetInteger("Pet", petNum);
+        PetIdle();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    /// <summary>
+    /// 고양이의 처음 포즈를 결정하는 함수
+    /// </summary>
+    private void PetIdle()
+    {
+        int petNum = Random.Range(0, 3);
+        Debug.Log(petNum);
+
+        anim.SetInteger("Pet", petNum);
     }
 }
