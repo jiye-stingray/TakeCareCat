@@ -31540,7 +31540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 528716374}
-  catCamera: {fileID: 32979300}
+  catCamera: {fileID: 0}
 --- !u!4 &1798696173
 Transform:
   m_ObjectHideFlags: 0

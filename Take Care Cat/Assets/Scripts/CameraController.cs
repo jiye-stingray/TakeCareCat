@@ -19,8 +19,9 @@ public class CameraController : MonoBehaviour
         
     }
 
-    public void ShowCatCamera()
+    public void ShowCatCamera(Camera catCamera)
     {
+        this.catCamera = catCamera;
         mainCamera.enabled = false;
         catCamera.enabled = true;
     }
