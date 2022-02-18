@@ -45,7 +45,7 @@ public class Cat : MonoBehaviour
     public void StartCatCare()
     {
         Debug.Log("µ¹º¸ÀÚ");
-        Camera catCamera = gameObject.GetComponent<Camera>();
+        Camera catCamera = gameObject.GetComponentInChildren<Camera>();
         SystemManager.Instance.CameraController.ShowCatCamera(catCamera);
     }
 }
