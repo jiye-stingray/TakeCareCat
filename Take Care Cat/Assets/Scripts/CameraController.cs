@@ -25,4 +25,10 @@ public class CameraController : MonoBehaviour
         mainCamera.enabled = false;
         catCamera.enabled = true;
     }
+
+    public void ShowMainCamera()
+    {
+        catCamera.enabled = false;
+        mainCamera.enabled = true;
+    }
 }

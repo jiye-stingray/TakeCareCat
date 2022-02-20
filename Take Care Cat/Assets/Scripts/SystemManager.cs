@@ -44,4 +44,14 @@ public class SystemManager : MonoBehaviour
             return cameraController;
         }
     }
+
+    [SerializeField]
+    CatCare catCare;
+    public CatCare CatCare
+    {
+        get
+        {
+            return catCare;
+        }
+    }
 }
