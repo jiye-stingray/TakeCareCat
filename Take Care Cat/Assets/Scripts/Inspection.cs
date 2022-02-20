@@ -35,7 +35,11 @@ public class Inspection : MonoBehaviour
     {
         //Debug.DrawRay(transform.position, transform.forward, Color.green, 1f);
 
+        if (Camera.main == null)
+            return;
+        
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
 
         if (Physics.Raycast(ray, out hit))
         {
