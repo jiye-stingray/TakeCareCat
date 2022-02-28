@@ -36,6 +36,9 @@ public class SystemManager : MonoBehaviour
     }
 
     [SerializeField]
+    Inspection inspection;
+
+    [SerializeField]
     CameraController cameraController;
     public CameraController CameraController
     {
@@ -44,6 +47,7 @@ public class SystemManager : MonoBehaviour
             return cameraController;
         }
     }
+
 
     [SerializeField]
     CatCare catCare;

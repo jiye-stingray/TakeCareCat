@@ -6,6 +6,8 @@ public class CatCare : MonoBehaviour
 {
 
     public GameObject CatCanvas;
+    Player player => SystemManager.Instance.Player;
+
 
     void Start()
     {
@@ -19,8 +21,26 @@ public class CatCare : MonoBehaviour
 
     public void OnExitBtnClick()
     {
-        Debug.Log("btn click");
         CatCanvas.SetActive(false);
         SystemManager.Instance.CameraController.ShowMainCamera();
+    }
+
+    public void Eat()
+    {
+        CheckFood();
+
+        player.mainCat.anim.SetTrigger("doEat");
+    }
+
+    private void CheckFood()
+    {
+        //음식 확인
+
+        Feed();
+    }
+
+    private void Feed()
+    {
+
     }
 }

@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     Animator anim;
 
+    public Cat mainCat;     //플레이어가 현재 관리하고 있는 고양이
+
     void Awake()
     {
         anim = player.GetComponent<Animator>();

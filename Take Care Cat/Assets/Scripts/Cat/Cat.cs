@@ -8,7 +8,7 @@ public class Cat : MonoBehaviour
     public float likeable;
     public float hunger;
 
-    Animator anim;
+    public Animator anim;
 
     void Awake()
     {

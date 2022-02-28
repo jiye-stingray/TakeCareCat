@@ -11,6 +11,7 @@ public class Inspection : MonoBehaviour
     RaycastHit hit;
     Ray ray;
 
+    Player player => SystemManager.Instance.Player;
 
     void Awake()
     {
@@ -46,7 +47,8 @@ public class Inspection : MonoBehaviour
             Debug.Log(hit.transform.name);
             if (hit.transform.tag == "Cat")
             {
-                hit.transform.gameObject.GetComponent<Cat>().StartCatCare();
+                player.mainCat = hit.transform.gameObject.GetComponent<Cat>();
+                player.mainCat.StartCatCare();
             }
 
             Explanation(hit.transform.gameObject);
