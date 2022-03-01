@@ -35,8 +35,6 @@ public class SystemManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    Inspection inspection;
 
     [SerializeField]
     CameraController cameraController;

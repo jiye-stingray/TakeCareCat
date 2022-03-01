@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class Inspection : MonoBehaviour
 {
-
+    [SerializeField] GameObject researchImg;
     public Text informationText;
+
     RaycastHit hit;
     Ray ray;
 
@@ -75,7 +76,11 @@ public class Inspection : MonoBehaviour
         if (obj.GetComponent<Object>() == null)
             explanation = "";
         else
+        {
+            StartCoroutine("ImgShow");
             explanation = obj.GetComponent<Object>().Search();  //조사
+
+        }
 
 
         //글자 보이기
@@ -97,5 +102,11 @@ public class Inspection : MonoBehaviour
         isExplanation = false;
     }
 
-    
+    IEnumerator ImgShow()
+    {
+        researchImg.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        researchImg.SetActive(false);
+    }
+
 }
