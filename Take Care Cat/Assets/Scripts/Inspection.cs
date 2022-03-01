@@ -14,9 +14,11 @@ public class Inspection : MonoBehaviour
 
     Player player => SystemManager.Instance.Player;
 
+    Animator imgAnim;
+
     void Awake()
     {
-
+        imgAnim = researchImg.GetComponent<Animator>();
     }
 
     void Start()
@@ -77,7 +79,7 @@ public class Inspection : MonoBehaviour
             explanation = "";
         else
         {
-            StartCoroutine("ImgShow");
+            ImgShow();
             explanation = obj.GetComponent<Object>().Search();  //Á¶»ç
 
         }
@@ -102,11 +104,10 @@ public class Inspection : MonoBehaviour
         isExplanation = false;
     }
 
-    IEnumerator ImgShow()
+    private void ImgShow()
     {
-        researchImg.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        researchImg.SetActive(false);
+        imgAnim.SetBool("isShow", true);
+
     }
 
 }
