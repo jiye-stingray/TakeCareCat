@@ -6,6 +6,8 @@ public class CatCare : MonoBehaviour
 {
 
     public GameObject CatCanvas;
+
+    int likeable;       //È£°¨µµ
     Player player => SystemManager.Instance.Player;
 
 
