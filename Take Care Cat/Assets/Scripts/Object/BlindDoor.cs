@@ -16,4 +16,9 @@ public class BlindDoor : Object
     {
         
     }
+
+    public override string ClickObj()
+    {
+        return base.ClickObj();
+    }
 }

@@ -15,10 +15,14 @@ public class Barrel : Object
         
     }
 
-    public override string Search()
+    public override string ClickObj()
     {
-        return base.Search();
+        return base.ClickObj();
     }
 
-    
+    public override void ReSearch()
+    {
+        base.ReSearch();
+    }
+
 }

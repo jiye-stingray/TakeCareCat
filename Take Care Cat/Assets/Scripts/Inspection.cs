@@ -28,12 +28,8 @@ public class Inspection : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RayCasting();
-        }
+        RayCasting();
     }
-
 
     void RayCasting()
     {
@@ -41,26 +37,32 @@ public class Inspection : MonoBehaviour
 
         if (Camera.main == null)
             return;
-        
+
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(hit.transform.name);
-            if (hit.transform.tag == "Cat")
+            if (Physics.Raycast(ray, out hit))
             {
-                player.mainCat = hit.transform.gameObject.GetComponent<Cat>();
-                player.mainCat.StartCatCare();
-            }
+                Debug.Log(hit.transform.name);
+                if (hit.transform.tag == "Cat")
+                {
+                    player.mainCat = hit.transform.gameObject.GetComponent<Cat>();
+                    player.mainCat.StartCatCare();
+                }
 
-            Explanation(hit.transform.gameObject);
-            
+                Explanation(hit.transform.gameObject);
+
+
+            }
+            else
+            {
+                informationText.text = "";
+            }
         }
-        else
-        {
-            informationText.text = "";
-        }
+
+        
+        
     }
 
     private bool isExplanation;
@@ -71,6 +73,8 @@ public class Inspection : MonoBehaviour
     /// <param name="obj">조사할 오브젝트</param>
     void Explanation(GameObject obj)
     {
+        Object objLogic = obj.GetComponent<Object>();
+
         if (isExplanation)
             return;
 
@@ -79,15 +83,13 @@ public class Inspection : MonoBehaviour
             explanation = "";
         else
         {
+            explanation = objLogic.ClickObj();  //조사
             ImgShow();
-            explanation = obj.GetComponent<Object>().Search();  //조사
 
         }
-
-
         //글자 보이기
         StartCoroutine(TextAnimation(explanation));
-        
+
 
     }
 

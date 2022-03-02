@@ -17,8 +17,8 @@ public class LockDoor : Object
         
     }
 
-    public override string Search()
+    public override string ClickObj()
     {
-        return base.Search();
+        return base.ClickObj();
     }
 }

@@ -11,4 +11,9 @@ public class OldCar : Object
         explanation = "너무 오래되서 작동하지 않는다";
     }
 
+    public override string ClickObj()
+    {
+        return base.ClickObj();
+    }
+
 }

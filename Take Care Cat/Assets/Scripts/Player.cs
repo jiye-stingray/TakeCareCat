@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float speed;
     float checkCollision = 1;
+    public int fish;        //생선
 
     Animator anim;
 
@@ -142,13 +143,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    Object obj = null;
+    void OnTriggerEnter(Collider other)
+    {
+        obj = other.GetComponent<Object>();
+    }
+
     void OnTriggerStay(Collider other)
     {
+        if (obj != null && Input.GetButtonDown("Research"))
+        {
+            obj.ReSearch();
+        }
+
         if (other.gameObject.tag == "Barrel")
         {
             Debug.Log("체력회복?");
         }
     }
 
-    
+    void OnTriggerExit(Collider other)
+    {
+        obj = null;
+    }
+
+
+
 }
