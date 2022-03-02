@@ -6,8 +6,6 @@ public class Object : MonoBehaviour
 {
     public string name;
     public string explanation;
-
-
     Player player => SystemManager.Instance.Player;
     
     // Start is called before the first frame update
@@ -37,6 +35,8 @@ public class Object : MonoBehaviour
     /// </summary>
     public virtual void ReSearch()
     {
+        player.fish += Random.Range(0, 4);
+
         Debug.Log("Á¶»ç");
     }
     

@@ -31,18 +31,22 @@ public class CatCare : MonoBehaviour
     {
         CheckFood();
 
-        player.mainCat.anim.SetTrigger("doEat");
     }
 
     private void CheckFood()
     {
         //음식 확인
+        if (player.fish <= 0)
+        {
+            Debug.Log("생선 없음");
+            return;
+        }
 
         Feed();
     }
 
     private void Feed()
     {
-
+        player.mainCat.anim.SetTrigger("doEat");
     }
 }

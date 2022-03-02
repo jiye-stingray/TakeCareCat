@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     float speed;
     float checkCollision = 1;
-    public int fish;        //持識
+    public int fish = 0;        //持識
 
     Animator anim;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     {
         LookAround();
         Move();
-
+        Debug.Log(fish);
     }
 
     void FixedUpdate()
