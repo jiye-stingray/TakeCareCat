@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     {
         LookAround();
         Move();
-        Debug.Log(fish);
     }
 
     void FixedUpdate()
@@ -122,6 +121,20 @@ public class Player : MonoBehaviour
         anim.SetTrigger("isJump");
     }
 
+
+    public void CheckFood()
+    {
+        //음식 확인
+        if (fish <= 0)
+        {
+            StartCoroutine(SystemManager.Instance.InformationTextController.TextAnimation("생선이 없다"));
+
+            Debug.Log("생선 없음");
+            return;
+        }
+
+        mainCat.Feed();
+    }
 
     void OnCollisionEnter(Collision collision)
     {

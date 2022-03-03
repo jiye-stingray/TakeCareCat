@@ -46,17 +46,6 @@ public class SystemManager : MonoBehaviour
         }
     }
 
-
-    [SerializeField]
-    CatCare catCare;
-    public CatCare CatCare
-    {
-        get
-        {
-            return catCare;
-        }
-    }
-
     [SerializeField]
     InformationTextController informationTextController;
     public InformationTextController InformationTextController
@@ -64,6 +53,16 @@ public class SystemManager : MonoBehaviour
         get
         {
             return informationTextController;
+        }
+    }
+
+    [SerializeField]
+    CatCanvasController catCanvasController;
+    public CatCanvasController CatCanvasController
+    {
+        get
+        {
+            return catCanvasController;
         }
     }
 }

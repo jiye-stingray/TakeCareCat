@@ -7,6 +7,7 @@ public class Cat : MonoBehaviour
     public string name;
     public float likeable;
     public float hunger;
+    Player player => SystemManager.Instance.Player;
 
     public Animator anim;
 
@@ -19,6 +20,7 @@ public class Cat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //CatCanvas.SetActive(false);
         PetIdle();
     }
 
@@ -44,6 +46,15 @@ public class Cat : MonoBehaviour
     {
         Camera catCamera = gameObject.GetComponentInChildren<Camera>();
         SystemManager.Instance.CameraController.ShowCatCamera(catCamera);
-        SystemManager.Instance.CatCare.CatCanvas.SetActive(true);
+        SystemManager.Instance.CatCanvasController.catCanvas.SetActive(true);
+    }
+
+    /// <summary>
+    /// 고양이에게 밥을 주는 함수
+    /// </summary>
+    public void Feed()
+    {
+        likeable++;
+        player.mainCat.anim.SetTrigger("doEat");
     }
 }
