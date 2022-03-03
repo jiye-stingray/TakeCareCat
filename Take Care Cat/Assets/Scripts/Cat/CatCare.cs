@@ -38,6 +38,8 @@ public class CatCare : MonoBehaviour
         //음식 확인
         if (player.fish <= 0)
         {
+            StartCoroutine(SystemManager.Instance.InformationTextController.TextAnimation("생선이 없다"));
+            
             Debug.Log("생선 없음");
             return;
         }

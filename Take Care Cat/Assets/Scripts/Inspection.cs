@@ -23,7 +23,7 @@ public class Inspection : MonoBehaviour
 
     void Start()
     {
-        informationText.text = "";
+        SystemManager.Instance.InformationTextController.informTxt.text = "";
     }
 
     void Update()
@@ -57,7 +57,7 @@ public class Inspection : MonoBehaviour
             }
             else
             {
-                informationText.text = "";
+                SystemManager.Instance.InformationTextController.informTxt.text = "";
             }
         }
 
@@ -65,7 +65,6 @@ public class Inspection : MonoBehaviour
         
     }
 
-    private bool isExplanation;
 
     /// <summary>
     /// 실질적으로 조사를 하는 함수
@@ -75,7 +74,7 @@ public class Inspection : MonoBehaviour
     {
         Object objLogic = obj.GetComponent<Object>();
 
-        if (isExplanation)
+        if (SystemManager.Instance.InformationTextController.isExplanation)
             return;
 
         string explanation;
@@ -88,28 +87,17 @@ public class Inspection : MonoBehaviour
 
         }
         //글자 보이기
-        StartCoroutine(TextAnimation(explanation));
+        
+        StartCoroutine(SystemManager.Instance.InformationTextController.TextAnimation(explanation));
 
 
     }
 
-    IEnumerator TextAnimation(string explanation)
-    {
-        isExplanation = true;
-        for (int i = 0; i < explanation.Length; i++)
-        {
-            informationText.text += explanation[i];
-            yield return new WaitForSeconds(0.05f);
-        }
-        yield return new WaitForSeconds(0.1f);
-        informationText.text = "";
-        isExplanation = false;
-    }
+    
 
     private void ImgShow()
     {
         imgAnim.SetBool("isShow", true);
-
     }
 
 }

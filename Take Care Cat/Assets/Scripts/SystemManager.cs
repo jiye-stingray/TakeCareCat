@@ -56,4 +56,14 @@ public class SystemManager : MonoBehaviour
             return catCare;
         }
     }
+
+    [SerializeField]
+    InformationTextController informationTextController;
+    public InformationTextController InformationTextController
+    {
+        get
+        {
+            return informationTextController;
+        }
+    }
 }
